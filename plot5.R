@@ -16,5 +16,5 @@ pm <- NEI %>%
 ggplot(pm) +
     geom_line(aes(x = year, y = TotalEmissions, group = 1)) +
     geom_point(aes(x = year, y = TotalEmissions), size = 2.5) +
-    labs(x = "Year", y = "Total Emissions", title = "Total Emissions from Coal Combustion-Related Sources")
+    labs(x = "Year", y = "Total Emissions", title = "Motor Vehicles Emission")
 ggsave("plot5.png")
