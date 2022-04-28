@@ -32,7 +32,22 @@ png("plot1.png")
 plot(
     x = as.numeric(levels(df2$year)[df2$year]),
     y = df2$TotalEmissions,
-    pch = 16, col = "black", lwd = 200, cex = 4,
-    xlab = "Year", ylab = "Total Emissions (tons)",
+    pch = 16, col = "black", cex = 2,
+    xlab = "Year", ylab = "Total Emissions",
+)
+dev.off()
+
+
+pmBaltimore <- subset(NEI, fips == 24510)
+dfBaltimore <- pmBaltimore %>%
+    group_by(year) %>%
+    summarise(TotalEmissions = sum(Emissions))
+
+png("plot2.png")
+plot(
+    x = as.numeric(levels(dfBaltimore$year)[dfBaltimore$year]),
+    y = dfBaltimore$TotalEmissions,
+    pch = 16, col = "black", cex = 2,
+    xlab = "Year", ylab = "Total Emissions",
 )
 dev.off()
