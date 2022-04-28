@@ -14,10 +14,8 @@ pm <- NEI %>%
     group_by(year, type) %>%
     summarise(TotalEmissions = sum(Emissions))
 
-png("plot3.png")
 ggplot(pm) +
     geom_line(aes(x = year, y = TotalEmissions, color = type, group = type)) +
     geom_point(aes(x = year, y = TotalEmissions, color = type)) +
     labs(x = "Year", y = "Total Emissions", title = "Baltimore City, Maryland")
-
-dev.off()
+ggsave("plot3.png")
