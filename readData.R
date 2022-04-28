@@ -12,18 +12,3 @@ SCC <- readRDS("data/Source_Classification_Code.rds")
 
 NEI$type <- as.factor(NEI$type)
 NEI$year <- as.factor(NEI$year)
-
-
-df1 <- NEI %>%
-    group_by(year, type) %>%
-    summarise(TotalEmissions = sum(Emissions))
-
-# require(gridExtra)
-# can use gridExtra to plot the data
-myplot <- ggplot(data = rbind(df1, df2)) +
-    geom_line(aes(x = year, y = TotalEmissions, color = type, group = type)) +
-    geom_point(aes(x = year, y = TotalEmissions, color = type))
-
-ggplot(dfBaltimore) +
-    geom_line(aes(x = year, y = TotalEmissions, color = type, group = type)) +
-    geom_point(aes(x = year, y = TotalEmissions, color = type))
