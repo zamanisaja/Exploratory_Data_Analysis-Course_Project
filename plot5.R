@@ -6,7 +6,7 @@ if (!"NEI" %in% ls()) {
 }
 
 # I'm assumming all motor vehicle sources have "Motor Vehicle" in their Short.Name
-motorVehicle <- dplyr::filter(SCC, grepl("Motor Vehicle", Short.Name))
+motorVehicle <- dplyr::filter(SCC, grepl("Vehicle", Short.Name))
 
 pm <- NEI %>%
     filter(SCC %in% motorVehicle$SCC) %>%
